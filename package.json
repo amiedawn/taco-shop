@@ -1,0 +1,23 @@
+{
+  "name": "taco-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "apollo-server-express": "^2.21.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amiedawn/taco-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amiedawn/taco-shop/issues"
+  },
+  "homepage": "https://github.com/amiedawn/taco-shop#readme"
+}
