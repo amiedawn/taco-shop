@@ -1,8 +1,7 @@
 {
-  "name": "mern-client",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@stripe/stripe-js": "^1.13.1",
@@ -26,7 +25,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
