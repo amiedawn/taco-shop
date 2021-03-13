@@ -10,9 +10,9 @@ import ApolloClient from "apollo-boost";
 // pages
 import Home from './pages/Home';
 // import Item from './pages/Item';
-// import Login from './pages/Login';
+ import Login from './pages/Login';
 // import NoMatch from './pages/NoMatch';
-// import Signup from './pages/Signup';
+ import Signup from './pages/Signup';
 // import OrderHistory from './pages/OrderHistory';
 // import Menu from './pages/Menu';
 // import Contact from './pages/Contact';
@@ -31,9 +31,9 @@ function App() {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/login" component={Login} />
+              <Route exact path="/login" component={Login} /> 
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/orderhistory" component={OrderHistory} />
+              {/* <Route exact path="/orderhistory" component={OrderHistory} />
               <Route exact path="/menu" component={Menu} />
               <Route exact path="/item" component={Item} />
               <Route exact path="/contact" component={Contact} />
