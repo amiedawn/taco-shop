@@ -1,3 +1,6 @@
+// require env file for secret
+require('dotenv').config();
+
 const express = require("express");
 // import ApolloServer
 const { ApolloServer } = require("apollo-server-express");
