@@ -1,0 +1,26 @@
+{
+  "short_name": "FS Taco Shop",
+  "name": "Full Stack Taco Shop",
+  "description": "Our site is a full-service application for our Mexican restaurant. Get to know us, see what we can offer you, place an order, and then come pick up your food and enjoy!",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#FFA500"
+}
