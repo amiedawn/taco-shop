@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "FS Taco Shop",
+  "name": "Full Stack Taco Shop",
+  "description": "Our site is a full-service application for our Mexican restaurant. Get to know us, see what we can offer you, place an order, and then come pick up your food and enjoy!",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,5 +22,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#FFA500"
 }
