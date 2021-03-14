@@ -4,8 +4,8 @@ import { ApolloProvider } from "@apollo/client";
 import ApolloClient from "apollo-boost";
 
 // components
-import Header from "./components/Header";
-//import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // pages
 import Home from './pages/Home';
@@ -27,8 +27,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
           <div className="container">
+            <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} /> 
@@ -42,7 +42,7 @@ function App() {
               {/* <Route component={NoMatch} /> */}
             </Switch>
           </div>
-          {/* <Footer /> */}
+          <Footer /> 
         </div>
       </Router>
     </ApolloProvider>
