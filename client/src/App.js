@@ -4,7 +4,7 @@ import { ApolloProvider } from "@apollo/client";
 import ApolloClient from "apollo-boost";
 
 // components
-//import Header from "./components/Header";
+import Header from "./components/Header";
 //import Footer from "./components/Footer";
 
 // pages
@@ -27,7 +27,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          {/* <Header /> */}
+          <Header />
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
