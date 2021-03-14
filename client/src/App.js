@@ -10,8 +10,8 @@ import Footer from "./components/Footer";
 // pages
 import Home from './pages/Home';
 // import Item from './pages/Item';
- import Login from './pages/Login';
-// import NoMatch from './pages/NoMatch';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
  import Signup from './pages/Signup';
 // import OrderHistory from './pages/OrderHistory';
 // import Menu from './pages/Menu';
@@ -38,8 +38,8 @@ function App() {
               <Route exact path="/item" component={Item} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/success" component={Success} /> */}
-              {/* if the route doesn't match any of the other path's, get a 404 */}
-              {/* <Route component={NoMatch} /> */}
+              {/* if the route doesn't match any of the other path's, get a 404  */}
+              <Route component={NoMatch} /> 
             </Switch>
           </div>
           <Footer /> 
