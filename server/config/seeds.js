@@ -7,12 +7,12 @@ db.once("open", async () => {
   const categories = await Category.insertMany([
     { name: "Main" },
     { name: "Appetizer" },
-    { name: "Drink" },
+    { name: "Drink" }
   ]);
 
   console.log("categories seeded");
 
-  await DataTransferItem.deleteMany();
+  await Item.deleteMany();
 
   const items = await Item.insertMany([
     {

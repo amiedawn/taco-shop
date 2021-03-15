@@ -19,8 +19,19 @@ import Home from './pages/Home';
 // import Contact from './pages/Contact';
 // import Success from './pages/Success';
 
+// const client = new ApolloClient({
+//   uri: "/graphql"
+// });
 const client = new ApolloClient({
-  uri: "/graphql"
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
+  uri: "/graphql",
 });
 
 function App() {
