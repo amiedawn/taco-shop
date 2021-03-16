@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider } from "@apollo/client";
-import ApolloClient from "apollo-boost";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 // components
 import Navbar from "./components/Navbar";
@@ -29,12 +28,13 @@ const client = new ApolloClient({
     });
   },
   uri: "/graphql",
+  cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
+       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
             {/* all components belong inside the StoreProvider tags */}
@@ -56,7 +56,7 @@ function App() {
             </StoreProvider>
           </div>
         </div>
-      </Router>
+      </Router> 
     </ApolloProvider>
   );
 }
