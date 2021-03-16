@@ -36,6 +36,10 @@ function Navbar() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
+          <span role="img" aria-label="taco">
+            {" "}
+            🌮{" "}
+          </span>
           Full Stack Taco Shop
         </Link>
       </h1>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 
-import MenuItem from "../MenuItem";
+import MenuItem from "./MenuItem";
 import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_ITEMS } from "../utils/actions";
 import { QUERY_ITEMS } from "../utils/queries";
