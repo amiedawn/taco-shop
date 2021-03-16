@@ -28,10 +28,10 @@ const Cart = () => {
       dispatch({ type: ADD_MULTIPLE_TO_CART, items: [...cart] });
     }
 
-    if (!state.cart.length) {
+    if (!state.cart) {
       getCart();
     }
-  }, [state.cart.length, dispatch]);
+  }, [state.cart, dispatch]);
 
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });

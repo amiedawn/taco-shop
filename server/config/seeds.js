@@ -47,7 +47,7 @@ db.once("open", async () => {
       category: categories[0]._id,
       description:
         "Large pile of crisp tortilla chips piled high with your choice of grade A meat, beans, cheese, lettuce, pico de gallo, guacamole, and sour cream",
-      image: "soap.jpg",
+      image: "nachos.jpg",
       price: 9,
       quantity: 500,
     },
