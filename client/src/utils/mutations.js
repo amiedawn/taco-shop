@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 // login
 export const LOGIN = gql`
@@ -22,6 +22,24 @@ export const ADD_USER = gql`
         _id
         username
       }  
+    }
+  }
+`;
+
+export const ADD_ORDER = gql`
+  mutation addOrder($items: [ID]!) {
+    addOrder(items: $items) {
+      purchaseDate
+      items {
+        _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
+      }
     }
   }
 `;
