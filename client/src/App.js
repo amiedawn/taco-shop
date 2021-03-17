@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider } from "@apollo/client";
-import ApolloClient from "apollo-boost";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
+//import ApolloClient from "apollo-boost";
 
 // components
 import Navbar from "./components/Navbar";
@@ -15,7 +15,7 @@ import Home from './pages/Home';
  import Signup from './pages/Signup';
 // import OrderHistory from './pages/OrderHistory';
 // import Menu from './pages/Menu';
-// import Contact from './pages/Contact';
+import Contact from './pages/Contact';
 // import Success from './pages/Success';
 
 const client = new ApolloClient({
@@ -33,11 +33,11 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} /> 
               <Route exact path="/signup" component={Signup} />
-              {/* <Route exact path="/orderhistory" component={OrderHistory} />
+              {/* {/* <Route exact path="/orderhistory" component={OrderHistory} />
               <Route exact path="/menu" component={Menu} />
-              <Route exact path="/item" component={Item} />
+              <Route exact path="/item" component={Item} /> */}
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/success" component={Success} /> */}
+              {/* <Route exact path="/success" component={Success} />  */}
               {/* if the route doesn't match any of the other path's, get a 404 */}
               {/* <Route component={NoMatch} /> */}
             </Switch>
