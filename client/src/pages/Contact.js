@@ -1,11 +1,6 @@
-// this will work if you install react-bootstrap in the root
-// feel free to edit or delete as much as you want :)
-
-
 import React, { useState } from "react";
+
 import { validateEmail } from "../utils/helpers";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 function Contact() {
   const [formState, setFormState] = useState({
@@ -43,92 +38,46 @@ function Contact() {
   };
 
   return (
-    <div>
-      <h1
-        data-testid="h1tag"
-        className="text-center"
-        style={{
-          backgroundColor: "#122240",
-          color: "#c0a98e",
-          padding: "20px",
-        }}
-      >
-        Contact Me
-      </h1>
-
-      <form
-        id="contact-form"
-        onSubmit={handleSubmit}
-        style={{
-          backgroundColor: "#122240",
-          color: "#c0a98e",
-        }}
-      >
-        <Form.Group
-          style={{
-            backgroundColor: "#122240",
-            color: "#c0a98e",
-            padding: "20px",
-          }}
-        >
-          <Form.Label htmlFor="name">Name:</Form.Label>
-          <Form.Control
+    <section>
+      <h1 data-testid="h1tag">Contact Us</h1>
+      <form id="contact-form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
             type="text"
             name="name"
             defaultValue={name}
             onBlur={handleChange}
           />
-        </Form.Group>
-        <Form.Group
-          style={{
-            backgroundColor: "#122240",
-            color: "#c0a98e",
-            padding: "20px",
-          }}
-        >
-          <Form.Label htmlFor="email">Email Address:</Form.Label>
-          <Form.Control
+        </div>
+        <div>
+          <label htmlFor="email">Email Address:</label>
+          <input
             type="email"
             name="email"
             defaultValue={email}
             onBlur={handleChange}
           />
-        </Form.Group>
-        <Form.Group
-          style={{
-            backgroundColor: "#122240",
-            color: "#c0a98e",
-            padding: "20px",
-          }}
-        >
-          <Form.Label htmlFor="message">Message:</Form.Label>
-          <Form.Control
-            as="textarea"
+        </div>
+        <div>
+          <label htmlFor="message">Message:</label>
+          <textarea
             name="message"
-            rows={5}
+            rows="5"
             defaultValue={message}
             onBlur={handleChange}
           />
-        </Form.Group>
+        </div>
         {errorMessage && (
           <div>
             <p className="error-text">{errorMessage}</p>
           </div>
         )}
-        <Button
-          className="ml-4 mb-4"
-          data-testid="button"
-          type="submit"
-          style={{
-            backgroundColor: "#be8180",
-            color: "#122240",
-            padding: "10px",
-          }}
-        >
+        <button data-testid="button" type="submit">
           Submit
-        </Button>
+        </button>
       </form>
-    </div>
+    </section>
   );
 }
 
