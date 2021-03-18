@@ -30,12 +30,12 @@ export function idbPromise(storeName, method, object) {
     };
 
     // handle any errors with connecting
-    request.onerror = function () {
+    request.onerror = () => {
       console.log('There was an error');
     };
 
     // on database open success
-    request.onsuccess = function () {
+    request.onsuccess = () => {
       // save a reference of the database to the `db` variable
       db = request.result;
       // open a transaction do whatever we pass into `storeName` (must match one of the object store names)
@@ -44,7 +44,7 @@ export function idbPromise(storeName, method, object) {
       store = tx.objectStore(storeName);
 
       // if there's any errors, let us know
-      db.onerror = function (e) {
+      db.onerror = (e) => {
         console.log('error', e);
       };
 
@@ -55,7 +55,7 @@ export function idbPromise(storeName, method, object) {
           break;
         case 'get': {
           const all = store.getAll();
-          all.onsuccess = function () {
+          all.onsuccess = () => {
             resolve(all.result);
           };
           break;
@@ -69,7 +69,7 @@ export function idbPromise(storeName, method, object) {
       }
 
       // when the transaction is complete, close the connection
-      tx.oncomplete = function () {
+      tx.oncomplete = () => {
         db.close();
       };
     };
