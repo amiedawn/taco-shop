@@ -21,7 +21,7 @@
     "stripe": "^8.138.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "nodemon": "^2.0.3"
   }
 }
