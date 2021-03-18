@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 // components
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 
 // pages
@@ -13,7 +13,7 @@ import Home from './pages/Home';
 // import OrderHistory from './pages/OrderHistory';
 // import Menu from './pages/Menu';
 import Contact from './pages/Contact';
-//import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Signup from './pages/Signup';
@@ -21,21 +21,21 @@ import Signup from './pages/Signup';
 
 const client = new ApolloClient({
   request: (operation) => {
-    const token = localStorage.getItem("id_token");
+    const token = localStorage.getItem('id_token');
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : "",
+        authorization: token ? `Bearer ${token}` : '',
       },
     });
   },
-  uri: "/graphql",
+  uri: '/graphql',
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-       <Router>
+      <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
             {/* all components belong inside the StoreProvider tags */}
@@ -57,7 +57,7 @@ function App() {
             </StoreProvider>
           </div>
         </div>
-      </Router> 
+      </Router>
     </ApolloProvider>
   );
 }

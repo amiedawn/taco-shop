@@ -21,7 +21,7 @@ export const ADD_USER = gql`
       user {
         _id
         username
-      }  
+      }
     }
   }
 `;
@@ -41,5 +41,11 @@ export const ADD_ORDER = gql`
         }
       }
     }
+  }
+`;
+
+export const SEND_CONTACT_EMAIL = gql`
+  mutation sendContactEmail($email: String!, $name: String!, $message: String!) {
+    sendContactEmail(from: $email, name: $name, text: $message)
   }
 `;

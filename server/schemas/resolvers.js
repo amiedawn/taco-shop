@@ -1,14 +1,20 @@
-const { AuthenticationError } = require("apollo-server-express");
-const { User, Item, Category, Order } = require("../models");
-const { signToken } = require("../utils/auth");
-const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+const {
+  AuthenticationError,
+  UserInputError,
+} = require('apollo-server-express');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const sgMail = require('@sendgrid/mail');
+const {
+  User, Item, Category, Order,
+} = require('../models');
+const { signToken } = require('../utils/auth');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const resolvers = {
   Query: {
-    categories: async () => {
-      return await Category.find();
-    },
-    items: async (parent, { category, name }) => {
+    categories: () => Category.find(),
+    items: (parent, { category, name }) => {
       const params = {};
 
       if (category) {
@@ -21,16 +27,14 @@ const resolvers = {
         };
       }
 
-      return await Item.find(params).populate("category");
+      return Item.find(params).populate('category');
     },
-    item: async (parent, { _id }) => {
-      return await Item.findById(_id).populate("category");
-    },
+    item: (parent, { _id }) => Item.findById(_id).populate('category'),
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "orders.items",
-          populate: "category",
+          path: 'orders.items',
+          populate: 'category',
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -38,27 +42,27 @@ const resolvers = {
         return user;
       }
 
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "orders.items",
-          populate: "category",
+          path: 'orders.items',
+          populate: 'category',
         });
 
         return user.orders.id(_id);
       }
 
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ items: args.items });
-      const { items } = await order.populate("items").execPopulate();
+      const { items } = await order.populate('items').execPopulate();
       const line_items = [];
 
-      for (let i = 0; i < items.length; i++) {
+      for (let i = 0; i < items.length; i += 1) {
         // generate item id
         const item = await stripe.items.create({
           name: items[i].name,
@@ -70,7 +74,7 @@ const resolvers = {
         const price = await stripe.prices.create({
           item: item.id,
           unit_amount: items[i].price * 100,
-          currency: "usd",
+          currency: 'usd',
         });
 
         // add price id to the line items array
@@ -81,9 +85,9 @@ const resolvers = {
       }
 
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
+        payment_method_types: ['card'],
         line_items,
-        mode: "payment",
+        mode: 'payment',
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
@@ -110,42 +114,61 @@ const resolvers = {
         return order;
       }
 
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
-    updateUser: async (parent, args, context) => {
+    updateUser: (parent, args, context) => {
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, {
+        return User.findByIdAndUpdate(context.user._id, args, {
           new: true,
         });
       }
 
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError('Not logged in');
     },
-    updateItem: async (parent, { _id, quantity }) => {
+    updateItem: (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Item.findByIdAndUpdate(
+      return Item.findByIdAndUpdate(
         _id,
         { $inc: { quantity: decrement } },
-        { new: true }
+        { new: true },
       );
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
 
       return { token, user };
+    },
+    sendContactEmail: async (parent, { from, name, text }) => {
+      try {
+        await sgMail.send({
+          to: process.env.CONTACT_EMAIL,
+          from: process.env.CONTACT_EMAIL,
+          subject: `Contact request - ${name}, ${new Date()}, ${from}`,
+          text,
+          html: `<a href="mailto:${from}>${from}</a>`,
+        });
+        return 'We have received your message.';
+      } catch (error) {
+        console.error(error);
+
+        if (error.response) {
+          console.error(error.response.body);
+        }
+        throw new UserInputError(error.message);
+      }
     },
   },
 };

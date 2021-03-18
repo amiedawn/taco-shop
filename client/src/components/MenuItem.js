@@ -1,9 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { pluralize } from "../utils/helpers";
-import { useStoreContext } from "../utils/GlobalState";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
-import { idbPromise } from "../utils/helpers";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { pluralize, idbPromise } from '../utils/helpers';
+import { useStoreContext } from '../utils/GlobalState';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 
 function MenuItem(foodItem) {
   const [state, dispatch] = useStoreContext();
@@ -17,19 +16,19 @@ function MenuItem(foodItem) {
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        _id: _id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        _id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity, 10) + 1,
       });
-      idbPromise("cart", "put", {
+      idbPromise('cart', 'put', {
         ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity, 10) + 1,
       });
     } else {
       dispatch({
         type: ADD_TO_CART,
         item: { ...foodItem, purchaseQuantity: 1 },
       });
-      idbPromise("cart", "put", { ...foodItem, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...foodItem, purchaseQuantity: 1 });
     }
   };
 
@@ -41,11 +40,13 @@ function MenuItem(foodItem) {
       </Link>
       <div>
         <div>
-          {quantity} {pluralize("foodItem", quantity)} in stock
+          {quantity} {pluralize('foodItem', quantity)} in stock
         </div>
         <span>${price}</span>
       </div>
-      <button onClick={addToCart}>Add to Cart</button>
+      <button type="button" onClick={addToCart}>
+        Add to Cart
+      </button>
     </div>
   );
 }

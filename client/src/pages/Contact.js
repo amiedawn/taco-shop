@@ -1,75 +1,46 @@
-import React, { useState } from "react";
+import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
 
-import { validateEmail } from "../utils/helpers";
-const sgMail = require("@sendgrid/mail");
+import { validateEmail } from '../utils/helpers';
+import { SEND_CONTACT_EMAIL } from '../utils/mutations';
 
 function Contact() {
   const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
+  const [response, setResponse] = useState('');
   const { name, email, message } = formState;
+  const [sendContactEmail] = useMutation(SEND_CONTACT_EMAIL);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!errorMessage) {
-      setFormState({ [e.target.name]: e.target.value });
-      console.log("Form", formState);
+    if (errorMessage) {
+      return;
     }
+    console.log(formState);
+
+    const { data } = await sendContactEmail({ variables: formState });
+    setResponse(data.sendContactEmail);
   };
 
   const handleChange = (e) => {
-    if (e.target.name === "email") {
+    if (e.target.name === 'email') {
       const isValid = validateEmail(e.target.value);
       if (!isValid) {
-        setErrorMessage("Your email is invalid.");
-      } else {
-        setErrorMessage("");
+        setErrorMessage('Your email is invalid.');
+        return;
       }
-    } else {
-      if (!e.target.value.length) {
-        setErrorMessage(`${e.target.name} is required.`);
-      } else {
-        setErrorMessage("");
-      }
+    } else if (!e.target.value.length) {
+      setErrorMessage(`${e.target.name} is required.`);
+      return;
     }
+    setFormState((state) => ({ ...state, [e.target.name]: e.target.value }));
+    setErrorMessage('');
   };
-
-  // send email via twilio sendgrid
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  const msg = {
-    to: "fstacoshop@gmail.com",
-    from: "fstacoshop@gmail.com", // Use the email address or domain you verified above
-    subject: "FS Taco Shop contact form data",
-    text: "and easy to do anywhere, even with Node.js",
-    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
-  };
-  //ES6
-  sgMail.send(msg).then(
-    () => {},
-    (error) => {
-      console.error(error);
-
-      if (error.response) {
-        console.error(error.response.body);
-      }
-    }
-  );
-  //ES8
-  (async () => {
-    try {
-      await sgMail.send(msg);
-    } catch (error) {
-      console.error(error);
-
-      if (error.response) {
-        console.error(error.response.body);
-      }
-    }
-  })();
 
   return (
     <section>
@@ -77,34 +48,24 @@ function Contact() {
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            defaultValue={name}
-            onBlur={handleChange}
-          />
+          <input type="text" name="name" defaultValue={name} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="email">Email Address:</label>
-          <input
-            type="email"
-            name="email"
-            defaultValue={email}
-            onBlur={handleChange}
-          />
+          <input type="email" name="email" defaultValue={email} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="message">Message:</label>
-          <textarea
-            name="message"
-            rows="5"
-            defaultValue={message}
-            onBlur={handleChange}
-          />
+          <textarea name="message" rows="5" defaultValue={message} onChange={handleChange} />
         </div>
         {errorMessage && (
           <div>
             <p className="error-text">{errorMessage}</p>
+          </div>
+        )}
+        {response && (
+          <div>
+            <p className="">{response}</p>
           </div>
         )}
         <button data-testid="button" type="submit">

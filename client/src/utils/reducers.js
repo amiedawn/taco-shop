@@ -1,9 +1,5 @@
 import { useReducer } from 'react';
-import {
-  UPDATE_ITEMS,
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
-} from "./actions";
+import { UPDATE_ITEMS, UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from './actions';
 
 export const reducer = (state, action) => {
   switch (action.type) {
