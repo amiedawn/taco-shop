@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
 
-import MenuItem from "./MenuItem";
-import { useStoreContext } from "../utils/GlobalState";
-import { UPDATE_ITEMS } from "../utils/actions";
-import { QUERY_ITEMS } from "../utils/queries";
-import { idbPromise } from "../utils/helpers";
-import spinner from "../assets/spinner.gif";
+import MenuItem from './MenuItem';
+import { useStoreContext } from '../utils/GlobalState';
+import { UPDATE_ITEMS } from '../utils/actions';
+import { QUERY_ITEMS } from '../utils/queries';
+import { idbPromise } from '../utils/helpers';
+import spinner from '../assets/spinner.gif';
 
 function ItemList() {
   const [state, dispatch] = useStoreContext();
@@ -26,16 +26,16 @@ function ItemList() {
 
       // but let's also take each item and save it to IndexedDB using the helper function
       data.items.forEach((item) => {
-        idbPromise("items", "put", item);
+        idbPromise('items', 'put', item);
       });
       // add else if to check if `loading` is undefined in `useQuery()` Hook
     } else if (!loading) {
       // since we're offline, get all of the data from the `items` store
-      idbPromise("items", "get").then((items) => {
+      idbPromise('items', 'get').then((items) => {
         // use retrieved data to set global state for offline browsing
         dispatch({
           type: UPDATE_ITEMS,
-          items: items,
+          items,
         });
       });
     }
@@ -46,9 +46,7 @@ function ItemList() {
       return state.items;
     }
 
-    return state.items.filter(
-      (item) => item.category._id === currentCategory
-    );
+    return state.items.filter((item) => item.category._id === currentCategory);
   }
 
   return (

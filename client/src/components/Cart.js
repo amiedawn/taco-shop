@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useLazyQuery } from "@apollo/client";
-import CartItem from "./CartItem";
-import Auth from "../utils/auth";
-import { useStoreContext } from "../utils/GlobalState";
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../utils/actions";
-import { idbPromise } from "../utils/helpers";
-import { QUERY_CHECKOUT } from "../utils/queries";
-import { loadStripe } from "@stripe/stripe-js";
+import React, { useEffect } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { loadStripe } from '@stripe/stripe-js';
+import CartItem from './CartItem';
+import Auth from '../utils/auth';
+import { useStoreContext } from '../utils/GlobalState';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../utils/actions';
+import { idbPromise } from '../utils/helpers';
+import { QUERY_CHECKOUT } from '../utils/queries';
 
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -24,7 +24,7 @@ const Cart = () => {
 
   useEffect(() => {
     async function getCart() {
-      const cart = await idbPromise("cart", "get");
+      const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, items: [...cart] });
     }
 
@@ -49,7 +49,7 @@ const Cart = () => {
     const itemIds = [];
 
     state.cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      for (let i = 0; i < item.purchaseQuantity; i += 1) {
         itemIds.push(item._id);
       }
     });
@@ -83,7 +83,9 @@ const Cart = () => {
           <div className="flex-row space-between">
             <strong>Total: ${calculateTotal()}</strong>
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <button type="button" onClick={submitCheckout}>
+                Checkout
+              </button>
             ) : (
               <span>(log in to check out)</span>
             )}
