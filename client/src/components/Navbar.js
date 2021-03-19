@@ -11,9 +11,6 @@ function Navbar() {
             <Link to="/orderHistory">Order History</Link>
           </li>
           <li className="mx-1">
-            <Link to="/aboutUs">About Us</Link>
-          </li>
-          <li className="mx-1">
             <Link to="/contact">Contact Us</Link>
           </li>
           <li className="mx-1">
@@ -32,6 +29,12 @@ function Navbar() {
         </li>
         <li className="mx-1">
           <Link to="/login">Login</Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/aboutUs">About Us</Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/Menu">Menu</Link>
         </li>
       </ul>
     );
