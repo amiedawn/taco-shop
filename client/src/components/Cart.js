@@ -39,8 +39,8 @@ const Cart = () => {
 
   function calculateTotal() {
     let sum = 0;
-    state.cart.forEach((item) => {
-      sum += item.price * item.purchaseQuantity;
+    state.cart.forEach((foodItem) => {
+      sum += foodItem.price * foodItem.purchaseQuantity;
     });
     return sum.toFixed(2);
   }
@@ -48,9 +48,9 @@ const Cart = () => {
   function submitCheckout() {
     const itemIds = [];
 
-    state.cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i += 1) {
-        itemIds.push(item._id);
+    state.cart.forEach((foodItem) => {
+      for (let i = 0; i < foodItem.purchaseQuantity; i += 1) {
+        itemIds.push(foodItem._id);
       }
     });
 
@@ -77,8 +77,8 @@ const Cart = () => {
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+          {state.cart.map((foodItem) => (
+            <CartItem key={foodItem._id} foodItem={foodItem} />
           ))}
           <div className="flex-row space-between">
             <strong>Total: ${calculateTotal()}</strong>
