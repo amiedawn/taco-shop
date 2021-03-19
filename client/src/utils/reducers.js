@@ -47,9 +47,8 @@ export const reducer = (state, action) => {
       };
 
     case REMOVE_FROM_CART:
-      const newState = state.cart.filter((item) => {
-        return item._id !== action._id;
-      });
+      // eslint-disable-next-line no-case-declarations
+      const newState = state.cart.filter((item) => item._id !== action._id);
 
       return {
         ...state,
@@ -63,6 +62,7 @@ export const reducer = (state, action) => {
         cartOpen: true,
         cart: state.cart.map((item) => {
           if (action._id === item._id) {
+            // eslint-disable-next-line no-param-reassign
             item.purchaseQuantity = action.purchaseQuantity;
           }
           return item;
