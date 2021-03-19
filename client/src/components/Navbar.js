@@ -11,6 +11,9 @@ function Navbar() {
             <Link to="/orderHistory">Order History</Link>
           </li>
           <li className="mx-1">
+            <Link to="/aboutUs">About Us</Link>
+          </li>
+          <li className="mx-1">
             <Link to="/contact">Contact Us</Link>
           </li>
           <li className="mx-1">

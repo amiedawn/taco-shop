@@ -9,6 +9,7 @@ function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
+  // eslint-disable-next-line no-console
   console.log(categories);
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
