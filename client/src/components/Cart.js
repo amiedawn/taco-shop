@@ -33,6 +33,8 @@ const Cart = () => {
     }
   }, [state.cart, dispatch]);
 
+  console.log(state.items);
+
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
@@ -49,7 +51,8 @@ const Cart = () => {
     const itemIds = [];
 
     state.cart.forEach((foodItem) => {
-      for (let i = 0; i < foodItem.purchaseQuantity; i += 1) {
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < foodItem.purchaseQuantity; i++) {
         itemIds.push(foodItem._id);
       }
     });
