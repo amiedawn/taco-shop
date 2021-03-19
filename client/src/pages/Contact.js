@@ -21,7 +21,6 @@ function Contact() {
     if (errorMessage) {
       return;
     }
-    console.log(formState);
 
     const { data } = await sendContactEmail({ variables: formState });
     setResponse(data.sendContactEmail);

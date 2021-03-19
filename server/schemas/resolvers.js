@@ -103,7 +103,6 @@ const resolvers = {
       return { token, user };
     },
     addOrder: async (parent, { items }, context) => {
-      console.log(context);
       if (context.user) {
         const order = new Order({ items });
 
