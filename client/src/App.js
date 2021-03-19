@@ -12,7 +12,7 @@ import Home from './pages/Home';
 // import Item from './pages/Item';
 import OrderHistory from './pages/OrderHistory';
 import About from './pages/About';
-// import Menu from './pages/Menu';
+import Menu from './pages/Menu';
 import Contact from './pages/Contact';
 // import Detail from './pages/Detail';
 import Login from './pages/Login';
@@ -48,7 +48,7 @@ function App() {
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/orderhistory" component={OrderHistory} />
                 <Route exact path="/aboutUs" component={About} />
-                {/* <Route exact path="/menu" component={Menu} /> */}
+                <Route exact path="/menu" component={Menu} />
                 {/* <Route exact path="/items/:id" component={Detail} /> */}
                 <Route exact path="/contact" component={Contact} />
                 {/* <Route exact path="/success" component={Success} />  */}

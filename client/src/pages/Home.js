@@ -5,8 +5,7 @@ import Cart from '../components/Cart';
 
 const Home = () => (
   <div className="container">
-    <CategoryMenu />
-    <ItemList />
+    <p>Super Cool Front page INCOMING!!!</p>
     <Cart />
   </div>
 );
