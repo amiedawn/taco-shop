@@ -43,7 +43,7 @@ export const reducer = (state, action) => {
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.items],
+        cart: [...state.items, ...action.items],
       };
 
     case REMOVE_FROM_CART:
