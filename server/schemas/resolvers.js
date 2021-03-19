@@ -1,7 +1,4 @@
-const {
-  AuthenticationError,
-  UserInputError,
-} = require('apollo-server-express');
+const { AuthenticationError } = require('apollo-server-express');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const sgMail = require('@sendgrid/mail');
 const {
@@ -150,25 +147,44 @@ const resolvers = {
 
       return { token, user };
     },
-    sendContactEmail: async (parent, { from, name, text }) => {
-      try {
-        await sgMail.send({
-          to: process.env.CONTACT_EMAIL,
-          from: process.env.CONTACT_EMAIL,
-          subject: `Contact request - ${name}, ${new Date()}, ${from}`,
-          text,
-          html: `<a href="mailto:${from}>${from}</a>`,
+    sendContactEmail: (parent, { from, name, text }) => {
+      const msg = {
+        to: process.env.CONTACT_EMAIL,
+        from: process.env.CONTACT_EMAIL,
+        subject: `Contact request - ${name}, ${new Date()}, ${from}`,
+        text: `${text}`,
+        html: `<a href="mailto:${from}>${from}</a>`,
+      };
+      sgMail
+        .send(msg)
+        .then(() => {
+          // eslint-disable-next-line no-console
+          console.log('Email sent');
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error(error);
         });
-        return 'We have received your message.';
-      } catch (error) {
-        console.error(error);
-
-        if (error.response) {
-          console.error(error.response.body);
-        }
-        throw new UserInputError(error.message);
-      }
     },
+    // sendContactEmail: async (parent, { from, name, text }) => {
+    //   try {
+    //     await sgMail.send({
+    //       to: process.env.CONTACT_EMAIL,
+    //       from: process.env.CONTACT_EMAIL,
+    //       subject: `Contact request - ${name}, ${new Date()}, ${from}`,
+    //       text,
+    //       html: `<a href="mailto:${from}>${from}</a>`,
+    //     });
+    //     return 'We have received your message.';
+    //   } catch (error) {
+    //     console.error(error);
+
+    //     if (error.response) {
+    //       console.error(error.response.body);
+    //     }
+    //     throw new UserInputError(error.message);
+    //   }
+    // },
   },
 };
 

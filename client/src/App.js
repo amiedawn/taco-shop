@@ -14,7 +14,7 @@ import OrderHistory from './pages/OrderHistory';
 import About from './pages/About';
 // import Menu from './pages/Menu';
 import Contact from './pages/Contact';
-import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Signup from './pages/Signup';
@@ -49,7 +49,7 @@ function App() {
                 <Route exact path="/orderhistory" component={OrderHistory} />
                 <Route exact path="/aboutUs" component={About} />
                 {/* <Route exact path="/menu" component={Menu} /> */}
-                <Route exact path="/items/:id" component={Detail} />
+                {/* <Route exact path="/items/:id" component={Detail} /> */}
                 <Route exact path="/contact" component={Contact} />
                 {/* <Route exact path="/success" component={Success} />  */}
                 {/* if the route doesn't match any of the other path's, get a 404 */}
