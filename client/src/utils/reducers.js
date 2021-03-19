@@ -1,5 +1,15 @@
 import { useReducer } from 'react';
-import { UPDATE_ITEMS, UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from './actions';
+import {
+  UPDATE_ITEMS,
+  UPDATE_CATEGORIES,
+  UPDATE_CURRENT_CATEGORY,
+  ADD_TO_CART,
+  ADD_MULTIPLE_TO_CART,
+  REMOVE_FROM_CART,
+  UPDATE_CART_QUANTITY,
+  CLEAR_CART,
+  TOGGLE_CART,
+} from './actions';
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -21,6 +31,55 @@ export const reducer = (state, action) => {
       return {
         ...state,
         currentCategory: action.currentCategory,
+      };
+
+    case ADD_TO_CART:
+      return {
+        ...state,
+        cartOpen: true,
+        cart: [...state.cart, action.item],
+      };
+
+    case ADD_MULTIPLE_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, ...action.items],
+      };
+
+    case REMOVE_FROM_CART:
+      const newState = state.cart.filter((item) => {
+        return item._id !== action._id;
+      });
+
+      return {
+        ...state,
+        cartOpen: newState.length > 0,
+        cart: newState,
+      };
+
+    case UPDATE_CART_QUANTITY:
+      return {
+        ...state,
+        cartOpen: true,
+        cart: state.cart.map((item) => {
+          if (action._id === item._id) {
+            item.purchaseQuantity = action.purchaseQuantity;
+          }
+          return item;
+        }),
+      };
+
+    case CLEAR_CART:
+      return {
+        ...state,
+        cartOpen: false,
+        cart: [],
+      };
+
+    case TOGGLE_CART:
+      return {
+        ...state,
+        cartOpen: !state.cartOpen,
       };
 
     default:
