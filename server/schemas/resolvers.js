@@ -54,9 +54,8 @@ const resolvers = {
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ items: args.items });
+     const { items } = await order.populate('items').execPopulate();
       const line_items = [];
-
-      const { items } = await order.populate('items').execPopulate();
 
       for (let i = 0; i < items.length; i += 1) {
         // generate item id

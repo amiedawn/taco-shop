@@ -33,10 +33,10 @@ const initialState = {
 test('UPDATE_ITEMS', () => {
   const newState = reducer(initialState, {
     type: UPDATE_ITEMS,
-    s: [{}, {}],
+    items: [{}, {}],
   });
 
-  expect(newState.ps.length).toBe(2);
+  expect(newState.items.length).toBe(2);
   expect(initialState.items.length).toBe(0);
 });
 
