@@ -1,7 +1,7 @@
 import React from 'react';
 // import ItemList from '../components/ItemList';
 // import CategoryMenu from '../components/CategoryMenu';
-import 'materialize-css';
+// import 'materialize-css';
 // import {Parallax} from 'react-materialize';
 import Cart from '../components/Cart';
 import Ingredients from '../assets/ingredients.jpeg';
