@@ -10,7 +10,7 @@ function CategoryMenu() {
 
   const { categories } = state;
   // eslint-disable-next-line no-console
-  console.log(categories);
+  // console.log(categories);
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 

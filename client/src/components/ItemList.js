@@ -15,6 +15,7 @@ function ItemList() {
 
   const { loading, data } = useQuery(QUERY_ITEMS);
 
+  // console.log(data);
   useEffect(() => {
     // if there's data to be stored
     if (data) {

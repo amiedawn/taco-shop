@@ -17,6 +17,7 @@ const Cart = () => {
   useEffect(() => {
     if (data) {
       stripePromise.then((res) => {
+        console.log(data);
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
@@ -36,7 +37,7 @@ const Cart = () => {
     }
   }, [state.cart, dispatch]);
 
-  console.log(state.items);
+  // console.log(state.items);
 
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
