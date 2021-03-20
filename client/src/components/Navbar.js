@@ -27,7 +27,8 @@ function Navbar() {
     //   }
 
     return (
-      <ul className="flex-row">
+      <div className="nav-wrapper" >
+      <ul className="flex-row orange">
         {/* Only shows order history if logged in, only shows login if not logged in */}
         {Auth.loggedIn() ? (
           <li className="mx-1">
@@ -61,6 +62,7 @@ function Navbar() {
           <Link to="/contact">Contact Us</Link>
         </li>
       </ul>
+      </div>
     );
   }
 

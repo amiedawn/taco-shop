@@ -1,28 +1,23 @@
 import React from 'react';
 // import ItemList from '../components/ItemList';
 // import CategoryMenu from '../components/CategoryMenu';
+import 'materialize-css';
+// import {Parallax} from 'react-materialize';
 import Cart from '../components/Cart';
+import Ingredients from '../assets/ingredients.jpeg';
 
 const Home = () => (
-  <div id="index-banner" className="parallax-container">
+  <div>
+    <div>
+      <img src={Ingredients} alt="taco ingredients" width="100%" />
+    </div>
     <div className="section no-pad-bot">
       <div className="container">
-        <h1 className="header center teal-text text-lighten-2">Parallax Template</h1>
+        <h1 className="header center teal-text text-lighten-2">Exciting Home page coming soon</h1>
         <div className="row center">
-          <h5 className="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-        <div className="row center">
-          {/* <a
-          href="http://materializecss.com/getting-started.html" 
-          id="download-button" 
-          className="btn-large waves-effect waves-light teal lighten-1">
-            Get Started
-          </a> */}
+          <h5 className="header col s12 light">clever sayings and large images</h5>
         </div>
       </div>
-    </div>
-    <div className="parallax">
-      <img src="ingredients.jpeg" alt="taco ingredients" />
     </div>
     <Cart />
   </div>
