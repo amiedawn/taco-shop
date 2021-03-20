@@ -1,9 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const sgMail = require('@sendgrid/mail');
-const {
-  User, Item, Category, Order,
-} = require('../models');
+const { User, Item, Category, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -56,8 +54,9 @@ const resolvers = {
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ items: args.items });
-      const { items } = await order.populate('items').execPopulate();
       const line_items = [];
+
+      const { items } = await order.populate('items').execPopulate();
 
       for (let i = 0; i < items.length; i += 1) {
         // generate item id
@@ -124,11 +123,7 @@ const resolvers = {
     updateItem: (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return Item.findByIdAndUpdate(
-        _id,
-        { $inc: { quantity: decrement } },
-        { new: true },
-      );
+      return Item.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -171,7 +166,7 @@ const resolvers = {
           console.error(error);
 
           if (error.response) {
-           console.error(error.response.body);
+            console.error(error.response.body);
           }
           throw new UserInputError(error.message);
         });
