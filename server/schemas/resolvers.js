@@ -147,13 +147,18 @@ const resolvers = {
 
       return { token, user };
     },
+    // set up contact form data sent to admin email
     sendContactEmail: (parent, { from, name, text }) => {
       const msg = {
         to: process.env.CONTACT_EMAIL,
         from: process.env.CONTACT_EMAIL,
         subject: `Contact request - ${name}, ${new Date()}, ${from}`,
-        text: `${text}`,
-        html: `<a href="mailto:${from}>${from}</a>`,
+        text,
+        html: `
+        <div style="font-family: inherit; display:block; text-align: inherit">Name: ${name}</div>
+        <div style="font-family: inherit; text-align: inherit">Email Address: ${from}</div>
+        <div style="font-family: inherit; text-align: inherit">Message: ${text}</div>
+        `,
       };
       sgMail
         .send(msg)
@@ -164,27 +169,13 @@ const resolvers = {
         .catch((error) => {
           // eslint-disable-next-line no-console
           console.error(error);
+
+          if (error.response) {
+           console.error(error.response.body);
+          }
+          throw new UserInputError(error.message);
         });
     },
-    // sendContactEmail: async (parent, { from, name, text }) => {
-    //   try {
-    //     await sgMail.send({
-    //       to: process.env.CONTACT_EMAIL,
-    //       from: process.env.CONTACT_EMAIL,
-    //       subject: `Contact request - ${name}, ${new Date()}, ${from}`,
-    //       text,
-    //       html: `<a href="mailto:${from}>${from}</a>`,
-    //     });
-    //     return 'We have received your message.';
-    //   } catch (error) {
-    //     console.error(error);
-
-    //     if (error.response) {
-    //       console.error(error.response.body);
-    //     }
-    //     throw new UserInputError(error.message);
-    //   }
-    // },
   },
 };
 
