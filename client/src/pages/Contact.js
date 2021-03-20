@@ -24,8 +24,10 @@ function Contact() {
 
     const { data } = await sendContactEmail({ variables: formState });
     setResponse(data.sendContactEmail);
+    setResponse('Thank you for your message! We will respond to you as quickly as possible.');
   };
 
+  // error messages if nothing is entered in input boxes
   const handleChange = (e) => {
     if (e.target.name === 'email') {
       const isValid = validateEmail(e.target.value);
