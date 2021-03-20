@@ -44,6 +44,7 @@ function Contact() {
   };
 
   return (
+    <>
     <section>
       <h1 data-testid="h1tag">Contact Us</h1>
       <form id="contact-form" onSubmit={handleSubmit}>
@@ -74,6 +75,20 @@ function Contact() {
         </button>
       </form>
     </section>
+    {/* section for address and contact info */}
+    <section>
+      <div>
+        <h3>Full Stack Taco Shop</h3>
+        <p>
+            55 Main Street <br />
+            Some Town, UT <br />
+            12345<br />
+            P: 555.786.2839<br />
+            E: <a href="fstacoshop@gmail.com">fstacoshop@gmail.com</a>
+        </p>
+      </div>
+    </section>  
+    </>
   );
 }
 
