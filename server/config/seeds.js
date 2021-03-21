@@ -4,7 +4,12 @@ const { User, Item, Category } = require('../models');
 db.once('open', async () => {
   await Category.deleteMany();
 
-  const categories = await Category.insertMany([{ name: 'Main' }, { name: 'Appetizer' }, { name: 'Drink' }]);
+  const categories = await Category.insertMany([
+    { name: 'Entrees' },
+    { name: 'Appetizers' },
+    { name: 'Drinks' },
+    { name: 'All' },
+  ]);
 
   console.log('categories seeded');
 
@@ -63,11 +68,12 @@ db.once('open', async () => {
       quantity: 100,
     },
     {
-      name: 'Soda - Coca Cola Products',
+      name: 'Horchata',
       category: categories[2]._id,
-      description: "Regular and Diet Coke, Sprite, Barq's Root Beer, and Fanta Orange sodas",
+      description:
+        'traditional Mexican drink made up of white rice soaked in water, it’s flavored with cinnamon and its sweetened with granulated sugar',
       image: 'general.jpg',
-      price: 2,
+      price: 4,
       quantity: 300,
     },
     {
