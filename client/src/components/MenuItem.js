@@ -41,11 +41,12 @@ function MenuItem(foodItem) {
       </div>
       <div className="card-content">
         <span className="card-title">{name}</span>
-        <p>{description}</p>
-        <p>${price}.00</p>
+        <span>{description}</span>
+        <div className="divider" />
+        <section>${price}.00</section>
       </div>
       <div className="card-action">
-        <button type="button" onClick={addToCart}>
+        <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
           Add to Cart
         </button>
       </div>
