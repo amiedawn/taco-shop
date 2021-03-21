@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { pluralize, idbPromise } from '../utils/helpers';
+import { idbPromise } from '../utils/helpers';
+// import { pluralize, idbPromise } from '../utils/helpers';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 
 function MenuItem(foodItem) {
   const [state, dispatch] = useStoreContext();
 
-  const { image, name, _id, price, quantity } = foodItem;
+  const { image, name, _id, price } = foodItem;
+  // const { image, name, _id, price, quantity } = foodItem;
 
   const { cart } = state;
 
@@ -39,10 +41,7 @@ function MenuItem(foodItem) {
         <p>{name}</p>
       </Link>
       <div>
-        <div>
-          {quantity} {pluralize('foodItem', quantity)} in stock
-        </div>
-        <span>${price}</span>
+        <p>${price}</p>
       </div>
       <button type="button" onClick={addToCart}>
         Add to Cart
