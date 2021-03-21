@@ -36,8 +36,6 @@ const Cart = () => {
     }
   }, [state.cart, dispatch]);
 
-  // console.log(state.items);
-
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
