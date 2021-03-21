@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 
-const secret = process.env.SECRET;
+const secret = 'process.env.SECRET';
 const expiration = '2h';
 
 module.exports = {
-  authMiddleware({ req }) {
+  authMiddleware: function ({ req }) {
     // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
@@ -12,7 +12,6 @@ module.exports = {
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
     }
-
     console.log('token', token);
 
     if (!token) {
