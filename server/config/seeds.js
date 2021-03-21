@@ -4,11 +4,7 @@ const { User, Item, Category } = require('../models');
 db.once('open', async () => {
   await Category.deleteMany();
 
-  const categories = await Category.insertMany([
-    { name: 'Main' },
-    { name: 'Appetizer' },
-    { name: 'Drink' },
-  ]);
+  const categories = await Category.insertMany([{ name: 'Main' }, { name: 'Appetizer' }, { name: 'Drink' }]);
 
   console.log('categories seeded');
 
@@ -36,8 +32,7 @@ db.once('open', async () => {
     {
       name: 'Quesadilla',
       category: categories[0]._id,
-      description:
-        '4 large quarters of tortilla stuffed with your choice of grade A meat and cheese',
+      description: '4 large quarters of tortilla stuffed with your choice of grade A meat and cheese',
       image: 'quesadillas.jpeg',
       price: 5,
       quantity: 500,
@@ -54,8 +49,7 @@ db.once('open', async () => {
     {
       name: 'Chips and Salsa',
       category: categories[1]._id,
-      description:
-        'Hot and fresh tortilla chips along with our award-winning salsa',
+      description: 'Hot and fresh tortilla chips along with our award-winning salsa',
       image: 'general.jpg',
       price: 3,
       quantity: 100,
@@ -63,8 +57,7 @@ db.once('open', async () => {
     {
       name: 'Chips and Queso',
       category: categories[1]._id,
-      description:
-        'Hot and fresh tortilla chips along with our hot, flavorful queso',
+      description: 'Hot and fresh tortilla chips along with our hot, flavorful queso',
       image: 'general.jpg',
       price: 4,
       quantity: 100,
@@ -72,8 +65,7 @@ db.once('open', async () => {
     {
       name: 'Soda - Coca Cola Products',
       category: categories[2]._id,
-      description:
-        "Regular and Diet Coke, Sprite, Barq's Root Beer, and Fanta Orange sodas",
+      description: "Regular and Diet Coke, Sprite, Barq's Root Beer, and Fanta Orange sodas",
       image: 'general.jpg',
       price: 2,
       quantity: 300,

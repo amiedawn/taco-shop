@@ -6,7 +6,9 @@ import Cart from '../components/Cart';
 const Menu = () => (
   <div className="container">
     <CategoryMenu />
+
     <ItemList />
+
     <Cart />
   </div>
 );
