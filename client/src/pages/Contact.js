@@ -44,51 +44,65 @@ function Contact() {
   };
 
   return (
-    <>
-    <section>
-      <h1 data-testid="h1tag">Contact Us</h1>
-      <form id="contact-form" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input type="text" name="name" defaultValue={name} onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="email">Email Address:</label>
-          <input type="email" name="email" defaultValue={email} onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="message">Message:</label>
-          <textarea name="message" rows="5" defaultValue={message} onChange={handleChange} />
-        </div>
-        {errorMessage && (
-          <div>
-            <p className="error-text">{errorMessage}</p>
+    <div className="container">
+      <div className="row">
+        <h3>Contact Us</h3>
+        <form className="col s12" id="contact-form" onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="input-field col s12">
+              <input name="name" type="text" defaultValue={name} onChange={handleChange} />
+              <label htmlFor="name">Name</label>
+            </div>
+            <div className="input-field col s12">
+              <input type="email" name="email" defaultValue={email} onChange={handleChange} />
+              <label htmlFor="email">Email address</label>
+            </div>
+            <div className="input-field col s12">
+              <textarea
+                className="materialize-textarea"
+                name="message"
+                defaultValue={message}
+                onChange={handleChange}
+              />
+              <label htmlFor="message">Message</label>
+            </div>
           </div>
-        )}
-        {response && (
-          <div>
-            <p className="">{response}</p>
+          {errorMessage && (
+            <div>
+              <p className="error-text">{errorMessage}</p>
+            </div>
+          )}
+          {response && (
+            <div>
+              <p className="">{response}</p>
+            </div>
+          )}
+          <div className="flex-row flex-end">
+            <button className="btn waves-effect waves-light" type="submit" name="action">
+              Submit
+              <i className="material-icons right">send</i>
+            </button>
           </div>
-        )}
-        <button data-testid="button" type="submit">
-          Submit
-        </button>
-      </form>
-    </section>
-    {/* section for address and contact info */}
-    <section>
-      <div>
-        <h3>Full Stack Taco Shop</h3>
-        <p>
-            55 Main Street <br />
-            Some Town, UT <br />
-            12345<br />
-            P: 555.786.2839<br />
-            E: <a href="fstacoshop@gmail.com">fstacoshop@gmail.com</a>
-        </p>
+        </form>
       </div>
-    </section>  
-    </>
+      {/* section for address and contact info */}
+      <div className="row">
+        <section>
+          <div>
+            <h3>Full Stack Taco Shop</h3>
+            <p>
+              55 Main Street <br />
+              Some Town, UT <br />
+              12345
+              <br />
+              P: 555.786.2839
+              <br />
+              E: <a href="fstacoshop@gmail.com">fstacoshop@gmail.com</a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }
 

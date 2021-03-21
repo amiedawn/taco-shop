@@ -27,42 +27,44 @@ function Navbar() {
     //   }
 
     return (
-      <div className="nav-wrapper" >
-      <ul className="flex-row orange">
-        {/* Only shows order history if logged in, only shows login if not logged in */}
-        {Auth.loggedIn() ? (
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        ) : (
-          <li className="mx-1">
-            <Link to="/login">Login</Link>
-          </li>
-        )}
-        {/* Only shows logout if logged in, only shows login if not logged in */}
-        {Auth.loggedIn() ? (
-          <li className="mx-1">
-            <Link to="/orderHistory">Order History</Link>
-          </li>
-        ) : (
-          <li className="mx-1">
-            <Link to="/signup">Signup</Link>
-          </li>
-        )}
-        <li className="mx-1">
-          <Link to="/Menu">Menu</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="/aboutUs">About Us</Link>
-        </li>
-        <li className="mx-1">
-          <Link to="/contact">Contact Us</Link>
-        </li>
-      </ul>
-      </div>
+      <nav>
+        <div className="nav-wrapper">
+          <ul className="flex-row orange" width="100%">
+            {/* Only shows order history if logged in, only shows login if not logged in */}
+            {Auth.loggedIn() ? (
+              <li>
+                {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+                <a href="/" onClick={() => Auth.logout()}>
+                  Logout
+                </a>
+              </li>
+            ) : (
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            )}
+            {/* Only shows logout if logged in, only shows login if not logged in */}
+            {Auth.loggedIn() ? (
+              <li>
+                <Link to="/orderHistory">Order History</Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/signup">Signup</Link>
+              </li>
+            )}
+            <li>
+              <Link to="/Menu">Menu</Link>
+            </li>
+            <li>
+              <Link to="/aboutUs">About Us</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact Us</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     );
   }
 

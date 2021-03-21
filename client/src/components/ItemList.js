@@ -51,10 +51,10 @@ function ItemList() {
   }
 
   return (
-    <div className="my-2">
-      <h2>Our Items:</h2>
+    <div>
+      <h3>Menu</h3>
       {state.items.length ? (
-        <div className="flex-row">
+        <div className="col s12 m6 l6">
           {filterItems().map((item) => (
             <MenuItem
               key={item._id}
@@ -63,6 +63,7 @@ function ItemList() {
               name={item.name}
               price={item.price}
               quantity={item.quantity}
+              description={item.description}
             />
           ))}
         </div>

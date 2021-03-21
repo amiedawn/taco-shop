@@ -41,10 +41,11 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
+    <div className="row">
+      <h3>Choose a Category</h3>
       {categories.map((foodItem) => (
         <button
+          className="waves-effect waves-teal btn-flat"
           type="button"
           key={foodItem._id}
           onClick={() => {

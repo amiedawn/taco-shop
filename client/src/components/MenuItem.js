@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { pluralize, idbPromise } from '../utils/helpers';
+import { idbPromise } from '../utils/helpers';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 
 function MenuItem(foodItem) {
   const [state, dispatch] = useStoreContext();
 
-  const { image, name, _id, price, quantity } = foodItem;
+  const { image, name, _id, price, description } = foodItem;
 
   const { cart } = state;
 
@@ -33,20 +33,22 @@ function MenuItem(foodItem) {
   };
 
   return (
-    <div className="card px-1 py-1">
-      <Link to={`/items/${_id}`}>
-        <img alt={name} src={`/images/${image}`} />
-        <p>{name}</p>
-      </Link>
-      <div>
-        <div>
-          {quantity} {pluralize('foodItem', quantity)} in stock
-        </div>
-        <span>${price}</span>
+    <div className="card large">
+      <div className="card-image">
+        <Link to={`/items/${_id}`}>
+          <img alt={name} src={`/images/${image}`} />
+        </Link>
       </div>
-      <button type="button" onClick={addToCart}>
-        Add to Cart
-      </button>
+      <div className="card-content">
+        <span className="card-title">{name}</span>
+        <p>{description}</p>
+        <p>${price}.00</p>
+      </div>
+      <div className="card-action">
+        <button type="button" onClick={addToCart}>
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 }
