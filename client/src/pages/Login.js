@@ -32,17 +32,17 @@ function Login() {
   return (
     <div className="container">
       <div className="row">
-        <Link to="/signup">← Is this your first time here? Signup to create an account!</Link>
+        <Link to="/signup">← Is this your first time here? Sign up to create an account!</Link>
 
         <h3>Login</h3>
         <form className="col s12" onSubmit={handleFormSubmit}>
           <div className="row">
             <div className="input-field col s12">
-              <input placeholder="youremail@test.com" name="email" type="email" id="email" onChange={handleChange} />
+              <input name="email" type="email" id="email" onChange={handleChange} />
               <label htmlFor="email">Email address</label>
             </div>
             <div className="input-field col s12">
-              <input placeholder="******" name="password" type="password" id="pwd" onChange={handleChange} />
+              <input name="password" type="password" id="pwd" onChange={handleChange} />
               <label htmlFor="pwd">Password</label>
             </div>
           </div>
