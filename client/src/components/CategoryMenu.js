@@ -55,6 +55,9 @@ function CategoryMenu() {
           {foodItem.name}
         </button>
       ))}
+      <a className="waves-effect waves-teal btn-flat" type="button" href="/Menu">
+        All Menu Items
+      </a>
     </div>
   );
 }
