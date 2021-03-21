@@ -96,12 +96,12 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>
+        <h2>
           <span role="img" aria-label="pleading">
             🥺
           </span>
           You haven't added anything to your cart yet!
-        </h3>
+        </h2>
       )}
     </div>
   );
