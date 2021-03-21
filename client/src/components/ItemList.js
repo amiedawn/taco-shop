@@ -54,7 +54,7 @@ function ItemList() {
     <div>
       <h3>Menu</h3>
       {state.items.length ? (
-        <div className="row">
+        <div className="col s12 m6 l6">
           {filterItems().map((item) => (
             <MenuItem
               key={item._id}

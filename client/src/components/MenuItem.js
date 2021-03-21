@@ -33,23 +33,21 @@ function MenuItem(foodItem) {
   };
 
   return (
-    <div className="col s12 m6 l3">
-      <div className="card large">
-        <div className="card-image">
-          <Link to={`/items/${_id}`}>
-            <img alt={name} src={`/images/${image}`} />
-          </Link>
-        </div>
-        <div className="card-content">
-          <span className="card-title">{name}</span>
-          <p>{description}</p>
-          <p>${price}.00</p>
-        </div>
-        <div className="card-action">
-          <button type="button" onClick={addToCart}>
-            Add to Cart
-          </button>
-        </div>
+    <div className="card large">
+      <div className="card-image">
+        <Link to={`/items/${_id}`}>
+          <img alt={name} src={`/images/${image}`} />
+        </Link>
+      </div>
+      <div className="card-content">
+        <span className="card-title">{name}</span>
+        <p>{description}</p>
+        <p>${price}.00</p>
+      </div>
+      <div className="card-action">
+        <button type="button" onClick={addToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
