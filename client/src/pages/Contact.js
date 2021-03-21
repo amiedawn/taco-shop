@@ -92,13 +92,14 @@ function Contact() {
             <h3>Full Stack Taco Shop</h3>
             <p>
               55 Main Street <br />
-              Some Town, UT <br />
-              12345
+              Some Town, UT  12345 <br />
+              Phone Number: 555-786-2839
               <br />
-              P: 555.786.2839
-              <br />
-              E: <a href="fstacoshop@gmail.com">fstacoshop@gmail.com</a>
+              Email Address: <a href="fstacoshop@gmail.com">fstacoshop@gmail.com</a>
             </p>
+            <p>Hours of Operation: <br />
+                Monday-Friday 11:00 AM - 10:00 PM <br />
+                Saturday-Sunday 10:30 AM - 12:00 AM</p> 
           </div>
         </section>
       </div>
