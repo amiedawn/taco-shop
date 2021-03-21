@@ -31,9 +31,9 @@ function Signup() {
 
   return (
     <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+      <Link to="/login">← Been here before? Go ahead and log back in if you already have an account!</Link>
 
-      <h2>Signup</h2>
+      <h3>Signup</h3>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="username">Username:</label>

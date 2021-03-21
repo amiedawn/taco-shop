@@ -61,15 +61,15 @@ h1 {
   color: var(--turquoise)
 }
 
-/* h2 {
-  font-size: 2rem;
+h2 {
+  color: var(--turquoise)
 }
 
 h3 {
-  font-size: 1.75rem;
+  color: var(--turquoise)
 }
 
-h4 {
+/* h4 {
   font-size: 1.5rem;
 }
 
