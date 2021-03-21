@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { LOGIN } from "../utils/mutations";
-import Auth from "../utils/auth";
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-function Login(props) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+function Login() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
@@ -14,7 +14,7 @@ function Login(props) {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
-      const token = mutationResponse.data.login.token;
+      const { token } = mutationResponse.data.login;
       Auth.login(token);
     } catch (e) {
       console.log(e);
@@ -30,40 +30,35 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+    <div className="container">
+      <div className="row">
+        <Link to="/signup">← Is this your first time here? Sign up to create an account!</Link>
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className="error-text">The provided credentials are incorrect</p>
+        <h3>Login</h3>
+        <form className="col s12" onSubmit={handleFormSubmit}>
+          <div className="row">
+            <div className="input-field col s12">
+              <input name="email" type="email" id="email" onChange={handleChange} />
+              <label htmlFor="email">Email address</label>
+            </div>
+            <div className="input-field col s12">
+              <input name="password" type="password" id="pwd" onChange={handleChange} />
+              <label htmlFor="pwd">Password</label>
+            </div>
           </div>
-        ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+          {error ? (
+            <div>
+              <p className="error-text">The provided credentials are incorrect</p>
+            </div>
+          ) : null}
+          <div className="flex-row flex-end">
+            <button className="btn waves-effect waves-light" type="submit" name="action">
+              Submit
+              <i className="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
