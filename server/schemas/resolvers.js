@@ -54,12 +54,12 @@ const resolvers = {
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ items: args.items });
-     const { items } = await order.populate('items').execPopulate();
+      const { items } = await order.populate('items').execPopulate();
       const line_items = [];
 
       for (let i = 0; i < items.length; i += 1) {
         // generate item id
-        const item = await stripe.items.create({
+        const item = await stripe.products.create({
           name: items[i].name,
           description: items[i].description,
           images: [`${url}/images/${items[i].image}`],
@@ -67,7 +67,7 @@ const resolvers = {
 
         // generate price id using the item id
         const price = await stripe.prices.create({
-          item: item.id,
+          product: item.id,
           unit_amount: items[i].price * 100,
           currency: 'usd',
         });
