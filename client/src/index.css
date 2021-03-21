@@ -7,10 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 
 :root {
   --navy: #232f3e;
@@ -26,14 +26,14 @@ code {
   --spacing-two: calc(1rem);
 }
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
-html,
+/* html,
 body {
   min-height: 100%;
-}
+} */
 
 body {
   margin: 0;
@@ -81,10 +81,10 @@ h6 {
   font-size: 1rem;
 } */
 
-p {
+/* p {
   font-size: 1.1rem;
   margin-top: 0;
-}
+} */
 
 a {
   color: var(--turquoise);
@@ -120,18 +120,18 @@ button:hover {
   opacity: 0.8;
 } */
 
-button[disabled] {
+/* button[disabled] {
   cursor: default;
   opacity: 0.8;
-}
+} */
 
-img {
+/* img {
   max-width: 100%;
-}
+} */
 
-span[role="img"] {
+/* span[role="img"] {
   cursor: default;
-}
+} */
 
 /* 
 form {
@@ -147,10 +147,10 @@ form {
   transition: box-shadow 0.2s;
 } */
 
-input:focus {
+/* input:focus {
   border: 1px solid var(--orange);
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
-}
+} */
 
 /* .container {
   width: 85%;
@@ -175,7 +175,7 @@ input:focus {
 /* .mx-1 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
-} */
+}
 
 .mx-2 {
   margin-right: var(--spacing-two);
@@ -210,12 +210,12 @@ input:focus {
 .py-2 {
   padding-top: var(--spacing-two);
   padding-bottom: var(--spacing-two);
-}
+} */
 
-.card {
+/* .card {
   width: 25%;
   text-align: center;
-}
+} */
 
 .error-text {
   color: var(--error);
@@ -297,8 +297,8 @@ input:focus {
   }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .card {
     width: 100%;
   }
-}
+} */
