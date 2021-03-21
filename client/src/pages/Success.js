@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import { useMutation } from "@apollo/client";
-import Jumbotron from "../components/Jumbotron";
-import { ADD_ORDER } from "../utils/mutations";
-import { idbPromise } from "../utils/helpers";
+import React, { useEffect } from 'react';
+import { useMutation } from '@apollo/client';
+import Jumbotron from '../components/Jumbotron';
+import { ADD_ORDER } from '../utils/mutations';
+import { idbPromise } from '../utils/helpers';
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
 
   useEffect(() => {
     async function saveOrder() {
-      const cart = await idbPromise("cart", "get");
+      const cart = await idbPromise('cart', 'get');
       const items = cart.map((foodItem) => foodItem._id);
 
       if (items.length) {
@@ -17,12 +17,12 @@ function Success() {
         const itemData = data.addOrder.items;
 
         itemData.forEach((foodItem) => {
-          idbPromise("cart", "delete", foodItem);
+          idbPromise('cart', 'delete', foodItem);
         });
       }
 
       setTimeout(() => {
-        window.location.assign("/");
+        window.location.assign('/');
       }, 3000);
     }
 

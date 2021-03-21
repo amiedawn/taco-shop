@@ -13,9 +13,12 @@ code {
 }
 
 :root {
-  --primary: #232f3e;
-  --secondary: #f3a847;
-  --tertiary: #b12704;
+  --navy: #232f3e;
+  --orange: #fa9802;
+  --turquoise: #4db6ac;
+  --red: #F22F1D;
+  --green: #60A62E;
+
   --light: #fafafa;
   --dark: #272f32;
   --error: rgb(228, 46, 1);
@@ -54,11 +57,11 @@ h6 {
   line-height: 1.25;
 }
 
-/* h1 {
-  font-size: 2.25rem;
+h1 {
+  color: var(--turquoise)
 }
 
-h2 {
+/* h2 {
   font-size: 2rem;
 }
 
@@ -84,7 +87,7 @@ p {
 }
 
 a {
-  color: var(--tertiary);
+  color: var(--turquoise);
   text-decoration: none;
   font-weight: bold;
 }
@@ -94,7 +97,7 @@ a:hover {
 }
 
 header {
-  background: var(--primary);
+  background: var(--navy);
 }
 
 header a {
@@ -110,7 +113,7 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: var(--orange);
 }
 
 button:hover {
@@ -144,7 +147,7 @@ input {
 }
 
 input:focus {
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--orange);
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
 }
 
@@ -243,7 +246,7 @@ input:focus {
   top: 0.5rem;
   right: 0.5rem;
   cursor: pointer;
-  color: var(--tertiary);
+  color: var(--turquoise);
 }
 
 .cart .close:hover {
@@ -256,7 +259,7 @@ input:focus {
   right: 1%;
   font-size: 2rem;
   cursor: pointer;
-  background-color: var(--secondary);
+  background-color: var(--orange);
   border-radius: 50%;
   padding: 0.25rem;
   width: 50px;
