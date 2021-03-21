@@ -4,31 +4,36 @@ const Footer = () => (
   <footer className="page-footer orange">
     <div className="container">
       <div className="row">
-        <div className="col l6 s12">
-          <h5 className="white-text">Footer Content</h5>
-          <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div className="col l4 offset-l2 s12">
-          <h5 className="white-text">Links</h5>
-          <ul>
+        <div className="col l12 s12">
+          <ul className="flex-row">
             <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 1
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="waves-effect waves-light btn-floating facebook"
+              >
+                <i className="fa fa-facebook" />
               </a>
             </li>
             <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 2
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noreferrer"
+                className="waves-effect waves-light btn-floating twitter"
+              >
+                <i className="fa fa-twitter" />
               </a>
             </li>
             <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 3
-              </a>
-            </li>
-            <li>
-              <a className="grey-text text-lighten-3" href="/Menu">
-                Menu
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="waves-effect waves-light btn-floating instagram"
+              >
+                <i className="fa fa-instagram" />
               </a>
             </li>
           </ul>
