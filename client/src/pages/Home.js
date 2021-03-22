@@ -20,13 +20,13 @@ const Home = () => (
             <h5>Sustainable gastronomy</h5>
           </div>
           <div className="col s12 m4 l4 center-align">
-            <i className="large material-icons" style={{ color: 'var(--orange)' }}>
+            <i className="large material-icons" style={{ color: 'var(--green)' }}>
               local_dining
             </i>
             <h5>Locally owned and operated</h5>
           </div>
           <div className="col s12 m4 l4 center-align">
-            <i className="large material-icons" style={{ color: 'var(--orange)' }}>
+            <i className="large material-icons" style={{ color: 'var(--red)' }}>
               favorite
             </i>
             <h5>Family-friendly atmosphere</h5>

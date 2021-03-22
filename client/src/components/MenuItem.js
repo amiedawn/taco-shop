@@ -34,25 +34,27 @@ function MenuItem(foodItem) {
   };
 
   return (
-    <div className="card large">
-      <div className="card-image">
-        <Link to={`/items/${_id}`}>
-          <img alt={name} src={`/images/${image}`} />
-        </Link>
-      </div>
-      <div className="card-content">
-        <span className="card-title">{name}</span>
-        <span>{description}</span>
-        <div className="divider" />
-        <section>${price}.00</section>
-      </div>
-      { Auth.loggedIn() ? (
-        <div className="card-action">
-          <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
-            Add to Cart
-          </button>
+    <div className="col s12 m6 l4">
+      <div className="card">
+        <div className="card-image">
+          <Link to={`/items/${_id}`}>
+            <img alt={name} src={`/images/${image}`} />
+          </Link>
         </div>
-      ) : null }
+        <div className="card-content">
+          <span className="card-title">{name}</span>
+          <span>{description}</span>
+          <div className="divider" />
+          <section>${price}.00</section>
+        </div>
+        {Auth.loggedIn() ? (
+          <div className="card-action">
+            <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
+              Add to Cart
+            </button>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

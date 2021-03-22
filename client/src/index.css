@@ -88,6 +88,8 @@ header a {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-end {
@@ -158,6 +160,15 @@ header a {
   padding: 0;
   margin: 0 0.5rem 1rem 0;
 }
+
+/* .card {
+    width: 50%;
+    float: left;
+}
+.card-content{
+    text-align: center;
+    font-weight: bold;
+    } */
 
 @media screen and (max-width: 768px) {
   .cart {
