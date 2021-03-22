@@ -40,14 +40,14 @@ function MenuItem(foodItem) {
           <Link to={`/items/${_id}`}>
             <img alt={name} src={`/images/${image}`} />
           </Link>
+          <span className="card-title">{name}</span>
         </div>
         <div className="card-content">
-          <span className="card-title">{name}</span>
-          <span>{description}</span>
+          <p>{description}</p>
           <div className="divider" />
-          <section>${price}.00</section>
+          <p>${price}.00</p>
         </div>
-        <div className="card-action">
+        <div className="card-action center-align">
           {Auth.loggedIn() ? (
             <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
               Add to Cart

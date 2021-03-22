@@ -14,7 +14,7 @@ db.once('open', async () => {
     {
       name: 'Tacos',
       description:
-        '3 tacos stuffed with your choice of grade A meat, cheese, lettuce, pico de gallo, guacamole, and sour cream',
+        '3 tacos stuffed with your choice of meat, cheese, lettuce, pico de gallo, guacamole, and sour cream',
       image: 'tacos.jpg',
       category: categories[0]._id,
       price: 8,
@@ -23,7 +23,7 @@ db.once('open', async () => {
     {
       name: 'Burrito',
       description:
-        'Gigantic burrito stuffed with your choice of grade A meat, rice, beans, cheese, lettuce, pico de gallo, guacamole, and sour cream',
+        'Gigantic burrito stuffed with your choice of meat, rice, beans, cheese, lettuce, pico de gallo, guacamole, and sour cream',
       image: 'burrito.jpg',
       category: categories[0]._id,
       price: 9,
@@ -32,7 +32,7 @@ db.once('open', async () => {
     {
       name: 'Quesadilla',
       category: categories[0]._id,
-      description: '4 large quarters of tortilla stuffed with your choice of grade A meat and cheese',
+      description: '4 large quarters of tortilla stuffed with your choice of meat and cheese.',
       image: 'quesadilla.jpg',
       price: 5,
       quantity: 500,
@@ -41,7 +41,7 @@ db.once('open', async () => {
       name: 'Pozole',
       category: categories[0]._id,
       description:
-        'Delicious soup with hominy and pork, garnished with cabbage, chile peppers, onion, radishes, avocado, salsa and limes',
+        'Delicious soup with hominy and pork, garnished with cabbage, onion, radishes, avocado, salsa and limes.',
       image: 'pozole.jpg',
       price: 9,
       quantity: 500,
@@ -49,7 +49,7 @@ db.once('open', async () => {
     {
       name: 'Chips, Salsa, and Guacamole',
       category: categories[1]._id,
-      description: 'Hot and fresh tortilla chips along with our award-winning salsa and guacamole',
+      description: 'Hot and fresh tortilla chips along with our award-winning salsa and guacamole.',
       image: 'chips.jpg',
       price: 3,
       quantity: 100,
@@ -57,7 +57,7 @@ db.once('open', async () => {
     {
       name: 'Mexican Rice',
       category: categories[1]._id,
-      description: 'Side of rice infused with a complex tomato flavor giving each grain just the right amount of bite',
+      description: 'Side of rice infused with a complex tomato flavor giving each grain just the right amount of bite.',
       image: 'rice.jpg',
       price: 4,
       quantity: 100,
@@ -66,7 +66,7 @@ db.once('open', async () => {
       name: 'Horchata',
       category: categories[2]._id,
       description:
-        'Traditional Mexican drink made of white rice soaked in water, flavored with cinnamon and sweetened with granulated sugar',
+        'Traditional Mexican drink made of white rice soaked in water, flavored with cinnamon and sweetened with granulated sugar.',
       image: 'horchata.jpg',
       price: 4,
       quantity: 300,
@@ -74,7 +74,7 @@ db.once('open', async () => {
     {
       name: 'Infused Bottled Water',
       category: categories[2]._id,
-      description: 'Bottled water infused with lemon and herbs',
+      description: 'Bottled water infused with lemon and herbs.',
       image: 'water.jpg',
       price: 2,
       quantity: 300,

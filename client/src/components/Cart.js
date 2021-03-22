@@ -65,8 +65,10 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed center-align vertical-align" onClick={toggleCart}>
-        <i className="fas fa-shopping-cart" style={{ color: 'var(--navy)' }} />
+      <div className="cart-closed center-align" onClick={toggleCart}>
+        <i className="small material-icons" style={{ color: 'var(--navy)' }}>
+          shopping_cart
+        </i>
       </div>
     );
   }
