@@ -69,18 +69,14 @@ function Navbar() {
   }
 
   return (
-    <header className="flex-row">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="taco">
-            {' '}
-            🌮{' '}
-          </span>
+    <div>
+      <header className="center-align">
+        <a href="/" style={{ textDecoration: 'none' }}>
           Full Stack Taco Shop
-        </Link>
-      </h1>
+        </a>
+      </header>
       <nav>{showNavigation()}</nav>
-    </header>
+    </div>
   );
 }
 
