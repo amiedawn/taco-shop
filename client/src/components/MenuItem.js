@@ -35,7 +35,7 @@ function MenuItem(foodItem) {
 
   return (
     <div className="col s12 m6 l4">
-      <div className="card">
+      <div className="card large">
         <div className="card-image">
           <Link to={`/items/${_id}`}>
             <img alt={name} src={`/images/${image}`} />
@@ -47,13 +47,13 @@ function MenuItem(foodItem) {
           <div className="divider" />
           <section>${price}.00</section>
         </div>
-        {Auth.loggedIn() ? (
-          <div className="card-action">
+        <div className="card-action">
+          {Auth.loggedIn() ? (
             <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
               Add to Cart
             </button>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
     </div>
   );
