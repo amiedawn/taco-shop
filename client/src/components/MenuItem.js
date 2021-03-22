@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { idbPromise } from '../utils/helpers';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
+import Auth from '../utils/auth';
 
 function MenuItem(foodItem) {
   const [state, dispatch] = useStoreContext();
@@ -45,11 +46,13 @@ function MenuItem(foodItem) {
         <div className="divider" />
         <section>${price}.00</section>
       </div>
-      <div className="card-action">
-        <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
-          Add to Cart
-        </button>
-      </div>
+      { Auth.loggedIn() ? (
+        <div className="card-action">
+          <button className="waves-effect waves-light btn" type="button" onClick={addToCart}>
+            Add to Cart
+          </button>
+        </div>
+      ) : null }
     </div>
   );
 }
