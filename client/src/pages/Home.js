@@ -11,9 +11,26 @@ const Home = () => (
     </div>
     <div className="section">
       <div className="container">
-        <h1 className="header center">Exciting Home page coming soon</h1>
-        <div className="row center">
-          <h5 className="header col s12 light">clever sayings and large images</h5>
+        <h2 className="header center">Every dish on the menu tells the unique story of the our family. </h2>
+        <div className="row">
+          <div className="col s12 m4 l4 center-align">
+            <i className="large material-icons" style={{ color: 'var(--orange)' }}>
+              wb_sunny
+            </i>
+            <h5>Sustainable gastronomy</h5>
+          </div>
+          <div className="col s12 m4 l4 center-align">
+            <i className="large material-icons" style={{ color: 'var(--orange)' }}>
+              local_dining
+            </i>
+            <h5>Locally owned and operated</h5>
+          </div>
+          <div className="col s12 m4 l4 center-align">
+            <i className="large material-icons" style={{ color: 'var(--orange)' }}>
+              favorite
+            </i>
+            <h5>Family-friendly atmosphere</h5>
+          </div>
         </div>
       </div>
     </div>
