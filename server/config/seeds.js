@@ -13,8 +13,7 @@ db.once('open', async () => {
   const items = await Item.insertMany([
     {
       name: 'Tacos',
-      description:
-        '3 tacos stuffed with your choice of meat, cheese, lettuce, pico de gallo, guacamole, and sour cream',
+      description: 'Three tacos stuffed with your choice of meat, cheese, pico de gallo, guacamole, and sour cream.',
       image: 'tacos.jpg',
       category: categories[0]._id,
       price: 8,
@@ -23,7 +22,7 @@ db.once('open', async () => {
     {
       name: 'Burrito',
       description:
-        'Gigantic burrito stuffed with your choice of meat, rice, beans, cheese, lettuce, pico de gallo, guacamole, and sour cream',
+        'Gigantic burrito stuffed with your choice of meat, rice, beans, cheese, lettuce, pico de gallo, guacamole, and sour cream.',
       image: 'burrito.jpg',
       category: categories[0]._id,
       price: 9,
@@ -32,7 +31,7 @@ db.once('open', async () => {
     {
       name: 'Quesadilla',
       category: categories[0]._id,
-      description: '4 large quarters of tortilla stuffed with your choice of meat and cheese.',
+      description: 'Four large quarters of tortilla stuffed with your choice of meat and cheese.',
       image: 'quesadilla.jpg',
       price: 5,
       quantity: 500,
@@ -66,7 +65,7 @@ db.once('open', async () => {
       name: 'Horchata',
       category: categories[2]._id,
       description:
-        'Traditional Mexican drink made of white rice soaked in water, flavored with cinnamon and sweetened with granulated sugar.',
+        'Traditional Mexican drink made of white rice soaked in water, flavored and sweetened with cinnamon and sugar.',
       image: 'horchata.jpg',
       price: 4,
       quantity: 300,

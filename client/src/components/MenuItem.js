@@ -35,7 +35,7 @@ function MenuItem(foodItem) {
 
   return (
     <div className="col s12 m6 l4">
-      <div className="card large">
+      <div className="card medium">
         <div className="card-image">
           <Link to={`/items/${_id}`}>
             <img alt={name} src={`/images/${image}`} />
