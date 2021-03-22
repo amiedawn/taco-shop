@@ -51,10 +51,11 @@ function ItemList() {
   }
 
   return (
-    <div>
+    <div className="row">
       <h3>Menu</h3>
+      <p> Click on a menu image for more information</p>
       {state.items.length ? (
-        <div className="col s12 m4 l6">
+        <div className="row">
           {filterItems().map((item) => (
             <MenuItem
               key={item._id}

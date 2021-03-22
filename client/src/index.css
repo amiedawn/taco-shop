@@ -55,18 +55,11 @@ h6 {
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
-}
-
-h1 {
   color: var(--turquoise)
 }
 
-h2 {
-  color: var(--turquoise)
-}
-
-h3 {
-  color: var(--turquoise)
+h5 {
+    color: var(--navy)
 }
 
 a {
@@ -81,15 +74,22 @@ a:hover {
 
 header {
   background: var(--navy);
+  padding: 2% 0;
 }
 
 header a {
-  color: var(--light);
+  color: white;
+  font-size: 60.9px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  margin: 5px 0;
 }
 
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-end {
@@ -136,18 +136,18 @@ header a {
 .cart-closed {
   position: fixed;
   top: 2%;
-  right: 1%;
+  right: 2%;
   font-size: 2rem;
   cursor: pointer;
-  background-color: var(--orange);
+  background-color: var(--green);
   border-radius: 50%;
-  padding: 0.25rem;
-  width: 50px;
-  height: 50px;
+  padding: 0.475em;
+  width: 60px;
+  height: 60px;
 }
 
 .cart-closed:hover {
-  transform: rotate(8deg);
+  transform: rotate(15deg);
 }
 
 .cart img {

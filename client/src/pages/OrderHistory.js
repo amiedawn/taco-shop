@@ -13,35 +13,33 @@ function OrderHistory() {
   }
 
   return (
-    <>
-      <div className="container">
-        <Link to="/Menu">← Back to Items</Link>
+    <div className="container">
+      <Link to="/Menu">← Back to Menu</Link>
 
-        {user ? (
-          <>
-            <h2>Order History for {user.username}</h2>
-            {user.orders.map((order) => (
-              <div key={order._id}>
-                <h3>{new Date(parseInt(order.purchaseDate, 10)).toLocaleDateString()}</h3>
-                <div className="flex-row">
-                  {order.items.map(({ _id, image, name, price }) => (
-                    <div key={_id} className="card">
-                      <Link to={`/items/${_id}`}>
-                        <img alt={name} src={`/images/${image}`} />
-                        <p>{name}</p>
-                      </Link>
-                      <div>
-                        <span>${price}</span>
-                      </div>
+      {user ? (
+        <div className="row">
+          <h3>Order History for {user.username}</h3>
+          {user.orders.map((order) => (
+            <div key={order._id}>
+              <h5>{new Date(parseInt(order.purchaseDate, 10)).toLocaleDateString()}</h5>
+              <div className="flex-row">
+                {order.items.map(({ _id, image, name, price }) => (
+                  <div key={_id} className="card">
+                    <Link to={`/items/${_id}`}>
+                      <img alt={name} src={`/images/${image}`} />
+                      <p>{name}</p>
+                    </Link>
+                    <div>
+                      <span>${price}.00</span>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </>
-        ) : null}
-      </div>
-    </>
+            </div>
+          ))}
+        </div>
+      ) : null}
+    </div>
   );
 }
 

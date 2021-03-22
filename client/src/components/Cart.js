@@ -65,10 +65,10 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
+      <div className="cart-closed center-align" onClick={toggleCart}>
+        <i className="small material-icons" style={{ color: 'var(--navy)' }}>
+          shopping_cart
+        </i>
       </div>
     );
   }
@@ -96,12 +96,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h2>
-          <span role="img" aria-label="pleading">
-            🥺
-          </span>
-          You haven't added anything to your cart yet!
-        </h2>
+        <p>You haven't added anything to your cart yet... aren't you hungry?</p>
       )}
     </div>
   );

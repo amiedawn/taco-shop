@@ -32,7 +32,7 @@ function Login() {
   return (
     <div className="container">
       <div className="row">
-        <Link to="/signup">← Is this your first time here? Sign up to create an account!</Link>
+        <Link to="/signup">← Is this your first time here? Sign up to create an account first!</Link>
 
         <h3>Login</h3>
         <form className="col s12" onSubmit={handleFormSubmit}>

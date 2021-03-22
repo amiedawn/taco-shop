@@ -85,23 +85,31 @@ function Detail() {
       {currentItem && cart ? (
         <div className="container">
           <div className="row">
-            <Link to="/Menu">← Back to Items</Link>
+            <Link to="/Menu">← Back to Menu</Link>
 
-            <h2>{currentItem.name}</h2>
+            <h3>{currentItem.name}</h3>
 
             <p>{currentItem.description}</p>
 
-            <p>
-              <strong>Price:</strong>${currentItem.price}{' '}
-              <button type="button" onClick={addToCart}>
+            <p>Price: ${currentItem.price}.00</p>
+            <div className="row">
+              <button className="btn waves-effect waves-light" type="button" onClick={addToCart}>
                 Add to Cart
+                <i className="material-icons right">add_shopping_cart</i>
               </button>
-              <button type="button" disabled={!cart.find((p) => p._id === currentItem._id)} onClick={removeFromCart}>
+              <button
+                className="btn waves-effect waves-light"
+                type="button"
+                disabled={!cart.find((p) => p._id === currentItem._id)}
+                onClick={removeFromCart}
+              >
                 Remove from Cart
+                <i className="material-icons right">remove_shopping_cart</i>
               </button>
-            </p>
-
-            <img src={`/images/${currentItem.image}`} alt={currentItem.name} />
+            </div>
+            <div className="row">
+              <img src={`/images/${currentItem.image}`} alt={currentItem.name} />
+            </div>
           </div>
         </div>
       ) : null}
