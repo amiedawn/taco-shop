@@ -47,9 +47,9 @@ const CartItem = ({ foodItem }) => {
         <div>
           <span>Qty:</span>
           <input type="number" placeholder="1" value={foodItem.purchaseQuantity} onChange={onChange} />
-          <span role="img" aria-label="trash" onClick={() => removeFromCart(foodItem)}>
-            🗑️
-          </span>
+          <i className="material-icons" onClick={() => removeFromCart(foodItem)}>
+            delete
+          </i>
         </div>
       </div>
     </div>

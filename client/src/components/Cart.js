@@ -80,16 +80,18 @@ const Cart = () => {
       </div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
-        <div>
+        <div className="row">
           {state.cart.map((foodItem) => (
             <CartItem key={foodItem._id} foodItem={foodItem} />
           ))}
-          <div className="flex-row space-between">
+          <div className="row">
             <strong>Total: ${calculateTotal()}</strong>
             {Auth.loggedIn() ? (
-              <button type="button" onClick={submitCheckout}>
-                Checkout
-              </button>
+              <div className="row">
+                <button className="waves-effect waves-light btn" type="button" onClick={submitCheckout}>
+                  Checkout
+                </button>
+              </div>
             ) : (
               <span>(log in to check out)</span>
             )}
