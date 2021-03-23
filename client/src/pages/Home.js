@@ -11,7 +11,7 @@ const Home = () => (
     </div>
     <div className="section">
       <div className="container">
-        <h2 className="header center">Every dish on the menu tells the unique story of the our family. </h2>
+        <h2 className="header center">Every dish on the menu tells the unique story of our family.</h2>
         <div className="row">
           <div className="col s12 m4 l4 center-align">
             <i className="large material-icons" style={{ color: 'var(--orange)' }}>
