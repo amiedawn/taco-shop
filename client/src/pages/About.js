@@ -10,21 +10,21 @@ const About = () => (
     </div>
     <div className="section">
       <div className="container">
-        <h2 className="header center">Meet the family...</h2>
-        <div className="row">
-          <div className="col s12 m6 l6 center-align">
+        <h2 className="header center">Meet the Family...</h2>
+        <div className="row center-align">
+          <div className="col s12 m12 l6">
             <img src={family1} alt="family" />
           </div>
-          <div className="col s12 m6 l6 center-align">
+          <div className="col s12 m12 l6">
             <img src={family3} alt="family3" />
           </div>
           <div className="row">
             <p>
-              From our family to yours, Full Stack Taco Shop dares to whisk you away to the streets of Mexico through
-              the smells and taste of our authentic cuisine. Using only recipes handed down for generations, we delight
-              in serving our customers with only the finest, freshest ingredients. Abuela Maria still comes in on
-              weekends to help prepare her special guacamole.It was she who first started this idea of sharing her
-              talents in the kitchen with others. Now forty-eight years later, the legacy lives on.
+              From our family to yours, Taco 'Bout It dares to whisk you away to the streets of Mexico through the
+              smells and taste of our authentic cuisine. Using only recipes handed down for generations, we delight in
+              serving our customers with only the finest, freshest ingredients. Abuela Maria still comes in on weekends
+              to help prepare her special guacamole.It was she who first started this idea of sharing her talents in the
+              kitchen with others. Now forty-eight years later, the legacy lives on.
             </p>
             <p>
               While our menu may be small, the flavors aren’t! We pride ourselves in serving only the best and sticking
