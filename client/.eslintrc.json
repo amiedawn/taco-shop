@@ -5,7 +5,6 @@
     "jest": true
   },
   "extends": [
-    "airbnb",
     "prettier"
   ],
   "parser": "babel-eslint",
