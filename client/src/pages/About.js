@@ -28,8 +28,8 @@ const About = () => (
             </p>
             <p>
               While our menu may be small, the flavors aren’t! We pride ourselves in serving only the best and sticking
-              with what we know will be the best Mexican dishes in town! Try our signature tacos, oversized burritos,
-              satisfying nachos, or our mouth-watering quesadillas today!
+              with what we know will be the best Mexican dishes in town! Try our signature tacos, oversized burritos, or
+              our mouth-watering quesadillas today!
             </p>
           </div>
         </div>
