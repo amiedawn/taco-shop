@@ -20,16 +20,16 @@ const About = () => (
           </div>
           <div className="row">
             <p>
-              From our family to yours, Taco 'Bout It dares to whisk you away to the streets of Mexico through the
-              smells and taste of our authentic cuisine. Using only recipes handed down for generations, we delight in
-              serving our customers with only the finest, freshest ingredients. Abuela Maria still comes in on weekends
-              to help prepare her special guacamole.It was she who first started this idea of sharing her talents in the
-              kitchen with others. Now forty-eight years later, the legacy lives on.
+              From our family to yours, <b>Taco 'Bout It</b> dares to whisk you away to the streets of Mexico through
+              the smells and taste of our authentic cuisine. Using only recipes handed down for generations, we delight
+              in serving our customers with only the finest, freshest ingredients. Abuela Maria still comes in on
+              weekends to help prepare her special guacamole. It was she who first started this idea of sharing her
+              talents in the kitchen with others. Now forty-eight years later, the legacy lives on.
             </p>
             <p>
               While our menu may be small, the flavors aren’t! We pride ourselves in serving only the best and sticking
-              with what we know will be the best Mexican dishes in town! Try our signature tacos, oversized burritos,
-              satisfying nachos, or our mouth-watering quesadillas today!
+              with what we know will be the best Mexican dishes in town! Try our signature tacos, oversized burritos, or
+              our mouth-watering quesadillas today!
             </p>
           </div>
         </div>
